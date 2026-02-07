@@ -304,7 +304,7 @@
       function submitFormspree() {
         var message = HER_NAME + ' said YES!';
         formMessage.value = message;
-        form.action = 'https://formspree.io/f/' + FORMSPREEE_ENDPOINT;
+        form.action = 'https://formspree.io/f/mzdabvql' + FORMSPREEE_ENDPOINT;
         var body = new FormData(form);
         var xhr = new XMLHttpRequest();
         xhr.open('POST', form.action);
@@ -313,7 +313,7 @@
 
       btnYes.addEventListener('click', function () {
         card.classList.add('success');
-        heading.textContent = "Yay! I can't wait! ❤️ Check your email!";
+        heading.textContent = "Yay! I can't wait! ❤️";
         fireConfetti();
         submitFormspree();
       });
