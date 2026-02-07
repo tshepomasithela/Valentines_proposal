@@ -218,7 +218,6 @@
   <div class="card-wrapper">
     <article class="card" id="card">
       <div class="card-image-wrap">
-        <!-- Put your photo in the SAME folder as index.html. Name it exactly photo.jpg (GitHub is case-sensitive: photo.jpg not Photo.JPG). -->
         <img
           class="card-image"
           id="card-photo"
@@ -240,10 +239,9 @@
 
   <script>
     (function () {
-      // Config: replace with your values
       var HER_NAME = 'Wezile Ntuli';
       var FORMSPREEE_ENDPOINT = 'https://formspree.io/f/mzdabvql';
-      var PHOTO_FILENAME = 'PHOTO.JPG';  // Same folder as index.html. Match the name exactly (GitHub Pages is case-sensitive).
+      var PHOTO_FILENAME = 'PHOTO.JPG'; 
 
       var cardPhoto = document.getElementById('card-photo');
       if (cardPhoto) {
@@ -304,10 +302,16 @@
       function submitFormspree() {
         var message = HER_NAME + ' said YES!';
         formMessage.value = message;
-        form.action = 'https://formspree.io/f/mzdabvql' + FORMSPREEE_ENDPOINT;
+        
+        // --- FIX IS HERE ---
+        // Originally you had: form.action = 'https://...' + FORMSPREEE_ENDPOINT;
+        // This duplicated the URL. I changed it to just use the variable.
+        form.action = FORMSPREEE_ENDPOINT;
+        
         var body = new FormData(form);
         var xhr = new XMLHttpRequest();
         xhr.open('POST', form.action);
+        xhr.setRequestHeader("Accept", "application/json"); // Added this to help Formspree process the AJAX
         xhr.send(body);
       }
 
