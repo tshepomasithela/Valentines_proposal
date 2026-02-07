@@ -218,10 +218,12 @@
   <div class="card-wrapper">
     <article class="card" id="card">
       <div class="card-image-wrap">
+        <!-- Put your photo in this folder and name it photo.jpg (or .png). Change PHOTO_FILENAME in the script if you use a different name. -->
         <img
           class="card-image"
-          src="https://tenor.com/view/cute-bear-animal-teddy-love-gif-10081295751402414095"
-          alt="Cute Valentine"
+          id="card-photo"
+          src="photo.jpg"
+          alt="Photo of us"
         >
       </div>
       <h1 class="card-heading" id="heading">Will you be my Valentine, <span id="her-name">Wezile Ntuli</span>?</h1>
@@ -239,8 +241,12 @@
   <script>
     (function () {
       // Config: replace with your values
-      var HER_NAME = 'Her Name';
+      var HER_NAME = 'Wezile Ntuli';
       var FORMSPREEE_ENDPOINT = 'https://formspree.io/f/mzdabvql';
+      var PHOTO_FILENAME = 'photo.png';  // Your photo (put it in the same folder as index.html). Use .png or .webp if you prefer.
+
+      var cardPhoto = document.getElementById('card-photo');
+      if (cardPhoto) cardPhoto.src = PHOTO_FILENAME;
 
       var card = document.getElementById('card');
       var heading = document.getElementById('heading');
